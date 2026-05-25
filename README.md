@@ -91,5 +91,10 @@ sdram_freq=500
 over_voltage=2
 ```
 
+### Set the default gov to 'performance' by appending this to your:
+/boot/cmdline.txt or /boot/firmware/cmdline.txt
 
+```
+cpufreq.default_governor=performance
+```
 
