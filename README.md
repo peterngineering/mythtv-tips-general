@@ -77,6 +77,19 @@ To add either of the above you can enter the commands manually or import them fr
     
 
 
+## RPI2 overclock
+The Raspios raspi-config tool has a, overclock for the rpi2 that works quite well even with no heat sink/additional cooling.
+It seems to really make a difference when using mythfrontend, much more responsive overall.
+Since it is included in raspios-config, I think it's a fairly safe option to use.
+This should work on most non raspios distros in /boot/config.txt
+
+```
+[pi2]
+arm_freq=1000
+core_freq=500
+sdram_freq=500
+over_voltage=2
+```
 
 
 
