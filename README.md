@@ -98,3 +98,26 @@ over_voltage=2
 cpufreq.default_governor=performance
 ```
 
+## RPI2 v1.1 limitations
+* This model is not recommended for use as a mythbackend.
+* This model can not boot directly from usb, you would have still have to use a sd card for your vfat/boot part1
+* The original rpi2 v1.1 can experience bandwidth issues with its arm cortex-a7 cpu(s) even overclocked.
+     * This is most likely to happen when your using multiple high bandwidth usb devices.
+     * This can happen easily if your using an external usb hard disk, even a self powered one.
+     * When you connect a external drive and mutliple usb devices they are going to increase your overall TDP
+       to where it is not the most effecient use. 
+* Though some people use this as a mythbackend/mythfrontend in ultra low power scenarios. Careful consideration
+   of its limitations have to be addressed.
+  * <b> Image artifacting is one side effect of a stressed/overtaxed rpi2 even in a dedicated backend. This can show up in your recordings and frontends. Limited your usb connected devices to 'help' avoid this. </b>
+
+## RPI Backend recommendations
+* As minimal, you can try a rpizero2 but limit its usb connected devices.
+* A rpi3b+ works but still not ideal when using a external usb device.
+* The rpi4b works great as a backend and supports 32bit userland and 64bit userland as options with better usb.
+* The rpi5 works great as a backend but with it's arm8-a ISA a-76 cpu(s) it will only boot a 64bit kernel. Note you
+  can use the rpi5 with a 64bit kernel and 32bit userland but this will cause problems in a development system
+  as its cpu will be detected wrongly. To prevent this for a hybrid 64/32bit dev system you would likely need to use cross compiling options.
+
+
+
+
