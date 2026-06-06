@@ -188,7 +188,7 @@ cpufreq.default_governor=performance
 
 ### Playback power use examples.*DEVICE ONLY measured, not monitor/tv. 
 * Using wifi/eth is not a big difference in power.
-* Wifi use is not bad when using a strong AP, but due to possible interferences/spectrum congestion, playback can be predictably better on wired.
+     * Wifi use is not bad when using a strong AP, but due to possible interferences/spectrum congestion, playback can be predictably better on wired.
 
 * RPI2(v1.1)/RPI3a
     <2W idle and ~3-3.5W or < with playback of 1080p mpeg2
