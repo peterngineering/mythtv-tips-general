@@ -110,13 +110,35 @@ cpufreq.default_governor=performance
    of its limitations have to be addressed.
   * <b> Image artifacting is one side effect of a stressed/overtaxed rpi2 even in a dedicated backend. This can show up in your recordings and frontends. Limited your usb connected devices to 'help' avoid this. </b>
 
-## RPI Backend recommendations
-* As minimal, you can try a rpizero2 but limit its usb connected devices.
-* A rpi3b+ works but still not ideal when using a external usb device.
-* The rpi4b works great as a backend and supports 32bit userland and 64bit userland as options with better usb.
-* The rpi5 works great as a backend but with it's arm8-a ISA a-76 cpu(s) it will only boot a 64bit kernel. Note you
-  can use the rpi5 with a 64bit kernel and 32bit userland but this will cause problems in a development system
-  as its cpu will be detected wrongly. To prevent this for a hybrid 64/32bit dev system you would likely need to use cross compiling options.
+## RPI Backend recommendations:
+
+### RPIZERO2 W
+* As minimal, you can try a rpizero2.
+     * Limit its usb connected devices as they are shared with the cpu.
+     * Limit the com scanning
+     * Limit bandwidth on its wifi 2.4G as this is shared with the cpu/usb  and its lower powered cpu freq.
+
+### RPI3b+/RPI3a     
+* A rpi3b+/RP3a works but still not ideal when using a external usb device.
+     * Using its wifi at 5G can overload the usb bus if also using several usb devices.
+  
+### RPI4
+ * The rpi4b works great as a backend.
+    * Includes 32bit/64bit userland options.
+    * Has dedicated usb 3.0 connected to the cpu(s) via a  pcie link.
+    * Has analog audio io port for legacy devices.
+
+### RPI5
+ * The rpi5 works awesome as a backend.
+     *  Increased cpu frequencies.
+     *  Upgraded to RP1 I/O controller.
+     *  Has PCIE 2 header for various HAT addon options.
+     *  Has a fan header. Use a large heat sink if not using a fan.
+     *  Has a power button.
+     *  Has RTC and battery connect header.(Effecient time management even in off grid use)
+     *  Its a-76 cpu(s) are armv8-a isa, which means it will only boot a 64bit kernel.
+   
+      * Note you could use the rpi5 with a 64bit kernel and 32bit userland, but this can cause problems in a development system as its cpu can be detected wrongly. For a hybrid 64/32bit RPI5 dev system you would likely want to use cross compiling options or emulate a 32bit environment.
 
 
 
