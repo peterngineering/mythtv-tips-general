@@ -138,7 +138,7 @@ cpufreq.default_governor=performance
      *  Has RTC and battery connect header.(Effecient time management even in off grid use)
      *  Its a-76 cpu(s) are armv8-a isa, which means it will only boot a 64bit kernel.
    
-      * Note you could use the rpi5 with a 64bit kernel and 32bit userland, but this can cause problems in a development system as its cpu can be detected wrongly. For a hybrid 64/32bit RPI5 dev system you would likely want to use cross compiling options or emulate a 32bit environment.
+      * Note you could use the rpi5 with a 64bit kernel and 32bit userland, but this can cause problems in a development system as its cpu can be detected wrongly. For a hybrid 64/32bit RPI5 dev system you would likely want to use cross compiling options or emulate a 32bit environment with an option that lets you specify a arm 32bit host cpu.
 
 
 
