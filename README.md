@@ -15,6 +15,7 @@ Test starting the frontend with :
       export MARIADB_TLS_DISABLE_PEER_VERIFICATION=1
 
 If that works add it to your environment or a mythfrontend startup script.
+
 * * *
 
 ## Can't connect using mythfrontend clients from other lan hosts
@@ -75,7 +76,7 @@ To add either of the above you can enter the commands manually or import them fr
     
     sudo mysql < mc-localnet-allow-192.168.1.0.sql
     
-
+* * *
 
 ## RPI2 overclock
 The Raspios raspi-config tool has a, overclock for the rpi2 that works quite well even with no heat sink/additional cooling.
@@ -98,6 +99,8 @@ over_voltage=2
 cpufreq.default_governor=performance
 ```
 
+* * *
+
 ## RPI2 v1.1 limitations
 * This model is not recommended for use as a mythbackend.
 * This model can not boot directly from usb, you would have still have to use a sd card for your vfat/boot part1
@@ -110,10 +113,9 @@ cpufreq.default_governor=performance
    of its limitations have to be addressed.
   * <b> Image artifacting is one side effect of a stressed/overtaxed rpi2 even in a dedicated backend. This can show up in your recordings and frontends. Limited your usb connected devices to 'help' avoid this. </b>
 
-## RPI Backend recommendations:
+* * *
 
-* Anything lower than rpi2 v1.2 will likely require a high level of optimization/tuning.
-* Expect random choppy playback on anything > standard def in default scenarios.
+## RPI Backend recommendations:
 
 ### RPIZERO2 W
 * As minimal, you can try a rpizero2.
@@ -142,6 +144,8 @@ cpufreq.default_governor=performance
      *  Its a-76 cpu(s) are armv8-a isa, which means it will only boot a 64bit kernel.
    
       * Note you could use the rpi5 with a 64bit kernel and 32bit userland, but this can cause problems in a development system as its cpu can be detected wrongly. For a hybrid 64/32bit RPI5 dev system you would likely want to use cross compiling options or emulate a 32bit environment with an option that lets you specify a arm 32bit host cpu.
+
+* * * 
 
 ## RPI Frontend recommendations:
 
@@ -180,9 +184,11 @@ cpufreq.default_governor=performance
      * Has GPU accelerated playback for both mp4/h264(avc) and h265(hevc)
      * Can support vulkan.
 
+* * *
 
 ### Playback power use examples.*DEVICE ONLY measured, not monitor/tv. 
-* Using wifi/eth is not a big difference in power but stream stability/playback is better on wired.
+* Using wifi/eth is not a big difference in power.
+* Wifi use is not bad when using a strong AP, but due to possible interferences/spectrum congestion, playback can be predictably better on wired.
 
 * RPI2(v1.1)/RPI3a
     <2W idle and ~3-3.5W or < with playback of 1080p mpeg2
