@@ -181,4 +181,14 @@ cpufreq.default_governor=performance
      * Can support vulkan.
 
 
+### Playback power use examples.*DEVICE ONLY measured, not monitor/tv. 
+* Using wifi/eth is not a big difference in power but stream stability/playback is better on wired.
 
+* RPI2(v1.1)/RPI3a
+    <2W idle and ~3-3.5W or < with playback of 1080p mpeg2
+
+* RPI3b/RPI4
+    <3W idle and ~4-4.5W or < with playback of 1080p mpeg2
+
+
+  
