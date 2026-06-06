@@ -146,8 +146,10 @@ cpufreq.default_governor=performance
 ## RPI Frontend recommendations:
 
 *Anything lower than rpi2 v1.1 will likely not work well. Expect random choppy playback on anything > standard def.
+   * You could play with using v4l2 codecs on these to make HD work to some level, but that may disable CC/Subtitles.
 
-* all the rpi can use accelerated GPU decoding and hardware deinterlacing GLSL when using mpeg4/avc formats.
+* All the rpi can use accelerated GPU decoding and hardware deinterlacing GLSL when using mp4/h264/avc formats,
+   RPI4/5 can also do x265/hevc.
    * Lowerend slower devices still may require profile tuning for best playback.
 * mpeg2 will be by default using software ffmpeg decoding and can use limited GLSL for deinterlacing(deint)
 
