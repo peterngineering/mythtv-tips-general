@@ -112,14 +112,17 @@ cpufreq.default_governor=performance
 
 ## RPI Backend recommendations:
 
+* Anything lower than rpi2 v1.2 will likely require a high level of optimization/tuning.
+* Expect random choppy playback on anything > standard def in default scenarios.
+
 ### RPIZERO2 W
 * As minimal, you can try a rpizero2.
      * Limit its usb connected devices as they are shared with the cpu.
      * Limit the com scanning
      * Limit bandwidth on its wifi 2.4G as this is shared with the cpu/usb  and its lower powered cpu freq.
 
-### RPI3b+/RPI3a     
-* A rpi3b+/RP3a works but still not ideal when using a external usb device.
+### RPI3b+ / RPI3a / RPI2(v1.2/v1.3)     
+* These work but still not ideal when using a external usb device.
      * Using its wifi at 5G can overload the usb bus if also using several usb devices.
   
 ### RPI4
@@ -140,6 +143,40 @@ cpufreq.default_governor=performance
    
       * Note you could use the rpi5 with a 64bit kernel and 32bit userland, but this can cause problems in a development system as its cpu can be detected wrongly. For a hybrid 64/32bit RPI5 dev system you would likely want to use cross compiling options or emulate a 32bit environment with an option that lets you specify a arm 32bit host cpu.
 
+## RPI Frontend recommendations:
+
+*Anything lower than rpi2 v1.1 will likely not work well. Expect random choppy playback on anything > standard def.
+
+* all the rpi can use accelerated GPU decoding and hardware deinterlacing GLSL when using mpeg4/avc formats.
+   * Lowerend slower devices still may require profile tuning for best playback.
+* mpeg2 will be by default using software ffmpeg decoding and can use limited GLSL for deinterlacing(deint)
+
+### RPI2 v1.1
+    * Can be VERY difficult to get consistent smooth playback on mpeg2 sources at 1080p.
+          * Performance and cpu specific tuning/optimisation required to get decent playback.
+          * Wired eth0 recommended.
+          * Specific optimized playback profiles.
+          * For 1080p Mpeg2 playback OpenGL High Quality(using GLSL Kernel) will not be smooth, try:
+                    * OpenGL Normal (GLSL linearblend) profile with 1x deint@ Medium quality.
+                    * No 2x deint.
+          * Disable "Smooth Transitions" @ 'Setup>Appearance>Theme/Screen Settings>Smooth Transitions>'
+
+### RPIZERO2 / RPI2(v1.2/v1.3) / RPI3a/RPI3b
+    * Can be challenging to get consistent smooth playback on mpeg2 sources at 1080p.
+          * Performance and cpu specific tuning/optimisation recommended. 
+             * RPIZERO2/RPI3A with only 512M ram may require vc4-kms-v3d CMA tuning.
+              * Disable "Smooth Transitions" @ 'Setup>Appearance>Theme/Screen Settings>Smooth Transitions>'
+          * Specific optimsized opengl playback profile testing recommended for best playback.
+               * For 1080p Mpeg2 playback OpenGL High Quality(GLSL Kernel) may not be smooth, try:
+                    * OpenGL Normal (GLSL kernel/linearblend) profile with 1x deint@high/medium quality
+                    * No 2x deint.
+
+### RPI4/RPI5
+     * Smooth playback on most sources.
+     * Standard default opengl playback profiles should work with the exception of no 2x deinterlacing.
+          * Disable 2x deinterlacing in profiles used.
+     * Has GPU accelerated playback for both mp4/h264(avc) and h265(hevc)
+     * Can support vulkan.
 
 
 
