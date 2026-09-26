@@ -111,6 +111,12 @@ cpufreq.default_governor=performance
        to where it is not the most effecient use. 
 * Though some people use this as a mythbackend/mythfrontend in ultra low power scenarios. Careful consideration
    of its limitations have to be addressed.
+  * <b> UPDATED INFO: The artifacts are only present in kernels I have tested newer than ver 6.1.x. I have just
+    discovered this and only applies to the rpi2, its not the rpi firmware, i left it in place and installed kernel6.1 and the it magically disappeared!  I knew something was up, I used to use the rpi2 with 32bit and didnt have mythfrontend errors. Something crept in after 6.1 that degraded the rpi video output on the rpi2 v1.1. This I only see when using drm vc4 with mythfrontend.
+    This happens with any distro, if the kernel is newer its going to look nasty like signal loss, but its NOT signal loss.
+    Something changed in the kernel after 6.1. I will keep updating the kernel minor versions and see what the news LTS kernel I can get for the rpi2 v1.1. I'll report back what the newest kernel one can use that works correctly, then I'll try to see exactly what breaks the quality playback.
+*<b> IF YOUR GETTING ARTIFACTS on RPI2 v1.1 with mythfrontend try rolling back and testing a kernel version 6.1 or older.
+    
   * <b> Image artifacting is one side effect of a stressed/overtaxed rpi2 even in a dedicated backend. This can show up in your recordings and frontends. Limited your usb connected devices to 'help' avoid this. </b>
 
 * * *
