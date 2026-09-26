@@ -116,6 +116,7 @@ cpufreq.default_governor=performance
     This happens with any distro, if the kernel is newer its going to look nasty like signal loss, but its NOT signal loss.
     Something changed in the kernel after 6.1. I will keep updating the kernel minor versions and see what the news LTS kernel I can get for the rpi2 v1.1. I'll report back what the newest kernel one can use that works correctly, then I'll try to see exactly what breaks the quality playback.
 *<b> IF YOUR GETTING ARTIFACTS on RPI2 v1.1 with mythfrontend try rolling back and testing a kernel version 6.1 or older.
+KERNEL 6.1 LTS is supported by team linus until Dec 2027!
     
   * <b> Image artifacting is one side effect of a stressed/overtaxed rpi2 even in a dedicated backend. This can show up in your recordings and frontends. Limited your usb connected devices to 'help' avoid this. </b>
 
